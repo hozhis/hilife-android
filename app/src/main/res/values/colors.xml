@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--PINK-->
+    <!--<color name="colorPrimary">#E91E63</color>
+    <color name="colorPrimaryDark">#C2185B</color>
+    <color name="colorAccent">#CDDC39</color>
+    <color name="textLight">#FFFFFF</color>
+    <color name="textPrimary">#212121</color>
+    <color name="colorPrimaryLight">#F8BBD0</color>
+    <color name="textSecondary">#727272</color>
+    <color name="colorDivider">#B6B6B6</color>-->
+    <!--RED-->
+    <color name="colorPrimary">#F44336</color>
+    <color name="colorPrimaryDark">#D32F2F</color>
+    <color name="colorAccent">#FF5252</color>
+    <color name="textLight">#FFFFFF</color>
+    <color name="textPrimary">#212121</color>
+    <color name="colorPrimaryLight">#FFCDD2</color>
+    <color name="textSecondary">#727272</color>
+    <color name="colorDivider">#B6B6B6</color>
+    <color name="colorWarning">#448AFF</color>
+</resources>

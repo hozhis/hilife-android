@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="首页" />
+        <item
+            android:id="@+id/nav_life"
+            android:icon="@drawable/ic_menu_life"
+            android:title="生活频道" />
+        <item
+            android:id="@+id/nav_order"
+            android:icon="@drawable/ic_menu_order"
+            android:title="我的订单" />
+        <item
+            android:id="@+id/nav_coupon"
+            android:icon="@drawable/ic_menu_coupon"
+            android:title="优惠券" />
+    </group>
+
+    <item android:title="其他">
+        <menu>
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/ic_menu_setting"
+                android:title="设置" />
+            <item
+                android:id="@+id/nav_quit"
+                android:icon="@drawable/ic_menu_quit"
+                android:title="退出账号"
+                android:visible="false"/>
+            <item
+                android:id="@+id/nav_login"
+                android:icon="@drawable/ic_menu_login"
+                android:title="登录"
+                android:visible="true"/>
+        </menu>
+    </item>
+
+</menu>

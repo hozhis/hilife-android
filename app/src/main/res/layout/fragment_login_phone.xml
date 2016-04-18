@@ -1,0 +1,113 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_login_phone"
+    tools:context=".auth.fragment.LoginPhoneFragment">
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 撑开顶部因Toolbar而留出的空白 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="168dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+            </LinearLayout>
+
+            <!-- Login progress -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/login_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="4dp"
+                    android:elevation="0dp"
+                    android:visibility="invisible"/>
+
+            </LinearLayout>
+
+            <!-- 手机号输入框 -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="12dp">
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_phone"
+                    android:inputType="phone"
+                    android:paddingTop="@dimen/input_padding"
+                    android:paddingBottom="@dimen/input_padding"
+                    android:maxLines="1"
+                    android:maxLength="11"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- 统一输入框校验错误提示 -->
+            <TextView
+                android:id="@+id/login_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginLeft="@dimen/common_margin"
+                android:text="Medium Text"
+                android:textSize="14sp"
+                android:textColor="@color/colorWarning"
+                android:visibility="invisible"/>
+
+            <!-- Phone页Tip -->
+            <TextView
+                android:id="@+id/login_help_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginLeft="@dimen/common_margin"
+                android:layout_marginTop="4dp"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/login_help_tip"/>
+
+            <!-- 下一步 操作按钮 -->
+            <Button
+                android:id="@+id/phone_next_step_button"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:minWidth="@dimen/btn_min_width"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/action_next_step"
+                android:layout_gravity="right"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:paddingLeft="@dimen/btn_padding"
+                android:paddingRight="@dimen/btn_padding"
+                android:textColor="@color/textLight"
+                android:background="@color/colorPrimary"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
