@@ -4,9 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -35,6 +32,7 @@ import cn.dolphinsoft.hilife.coupon.fragment.CouponFragment;
 import cn.dolphinsoft.hilife.life.fragment.LifeFragment;
 import cn.dolphinsoft.hilife.main.fragment.MainFragment;
 import cn.dolphinsoft.hilife.order.fragment.OrderFragment;
+import cn.dolphinsoft.hilife.setting.activity.SettingActivity;
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
 
@@ -44,7 +42,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private static final int LOGINACTIVITY = 1;
     private NavigationView navigationView;
+
+    /* Fragment */
     private MainFragment mainFragment;
+    private LifeFragment lifeFragment;
+    private OrderFragment orderFragment;
+    private CouponFragment couponFragment;
+
+    /* UI组件 */
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +59,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if(savedInstanceState == null){
             mainFragment = new MainFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.fragment_main_container,mainFragment);
+            getSupportFragmentManager().beginTransaction().add(R.id.fragment_main_container,mainFragment).commit();
         }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getString(R.string.nav_home));
         setSupportActionBar(toolbar);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -87,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
             navigationView.getMenu().findItem(R.id.nav_quit).setVisible(true);
         }
+
     }
 
     @Override
@@ -127,12 +135,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-
+            mainFragment = new MainFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_container,mainFragment).commit();
+            toolbar.setTitle(getString(R.string.nav_home));
         } else if (id == R.id.nav_coupon) {
+            couponFragment = new CouponFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_container,couponFragment).commit();
+            toolbar.setTitle(getString(R.string.nav_coupon));
         } else if (id == R.id.nav_life) {
+            lifeFragment = new LifeFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_container,lifeFragment).commit();
+            toolbar.setTitle(getString(R.string.nav_life));
         } else if (id == R.id.nav_order) {
+            orderFragment = new OrderFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_container,orderFragment).commit();
+            toolbar.setTitle(getString(R.string.nav_order));
         } else if (id == R.id.nav_setting) {
-
+            Intent intent = new Intent(MainActivity.this,SettingActivity.class);
+            startActivity(intent);
         }  else if (id == R.id.nav_quit) {
             logoutCurrentUser(getCurrentUserToken());
         }else if (id == R.id.nav_login) {

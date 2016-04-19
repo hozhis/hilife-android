@@ -20,10 +20,18 @@
 
     <string name="hello_blank_fragment">Fragment ！</string>
 
+    <!-- 操作栏 -->
+    <string name="nav_home">首页</string>
+    <string name="nav_life">生活频道</string>
+    <string name="nav_order">我的订单</string>
+    <string name="nav_coupon">优惠券</string>
+
+
     <!-- TODO: URL配置 -->
     <string name="contextPath">http://192.168.191.1:8080/hilife-web-user</string>
     <string name="checkUser">/web/auth/checkUser</string>
     <string name="sendLoginSms">/web/auth/sendLoginSms</string>
     <string name="logout">/web/auth/logout</string>
     <string name="login_authc">/web/auth/login/authc</string>
+
 </resources>

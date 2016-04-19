@@ -19,4 +19,6 @@
     <color name="textSecondary">#727272</color>
     <color name="colorDivider">#B6B6B6</color>
     <color name="colorWarning">#448AFF</color>
+    <color name="colorDotFocus">#85F44336</color>
+    <color name="colorDotBlur">#65FFFFFF</color>
 </resources>

@@ -30,6 +30,7 @@
             android:name=".auth.activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity android:name=".setting.activity.SettingActivity"></activity>
     </application>
 
 </manifest>
