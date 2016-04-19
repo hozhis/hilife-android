@@ -22,6 +22,45 @@
 
     <!-- 操作栏 -->
     <string name="nav_home">首页</string>
+        <string name="clean">保洁服务</string>
+            <string name="deep">深度保洁</string>
+            <string name="daily">日常清洁</string>
+            <string name="window">橱窗清洁</string>
+            <string name="kitchen">厨房清洁</string>
+            <string name="newhouse">新房开荒</string>
+            <string name="shower">浴室清洁</string>
+        <string name="maintain">维修服务</string>
+            <string name="wood">木工</string>
+            <string name="mason">泥瓦工</string>
+            <string name="plumber">水电工</string>
+            <string name="m_electric">电器</string>
+            <string name="painter">油漆工</string>
+        <string name="electric">电器清洗</string>
+            <string name="gas">燃气灶清洗</string>
+            <string name="microwave">微波炉清洗</string>
+            <string name="refrigerator">冰箱清洗</string>
+            <string name="rangehood">油烟机清洗</string>
+            <string name="aircondition">空调清洗</string>
+            <string name="washin">洗衣机清洗</string>
+            <string name="distinfection">消毒柜清洗</string>
+            <string name="oven">烤箱清洗</string>
+            <string name="water">饮水机清洗</string>
+        <string name="homely">家居保养</string>
+            <string name="sofa">沙发保养</string>
+            <string name="floor">地板打蜡</string>
+        <string name="move">搬家服务</string>
+            <string name="house">家庭搬家</string>
+            <string name="factory">企业搬厂</string>
+            <string name="weight">重物吊运</string>
+        <string name="pipeline">管道疏通</string>
+            <string name="sewer">下水道疏通</string>
+            <string name="closetool">马桶疏通</string>
+            <string name="bathtub">浴缸疏通</string>
+        <string name="other">其他服务</string>
+            <string name="dryclean">衣服干洗</string>
+            <string name="aunt">保姆月嫂</string>
+            <string name="ch2o">除甲醛</string>
+
     <string name="nav_life">生活频道</string>
     <string name="nav_order">我的订单</string>
     <string name="nav_coupon">优惠券</string>

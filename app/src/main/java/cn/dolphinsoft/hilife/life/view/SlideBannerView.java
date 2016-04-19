@@ -1,4 +1,4 @@
-package cn.dolphinsoft.hilife.main.view;
+package cn.dolphinsoft.hilife.life.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -36,7 +36,6 @@ public class SlideBannerView extends FrameLayout{
 
     // 使用universal-image-loader插件读取网络图片，需要工程导入universal-image-loader-1.8.6-with-sources.jar
     private ImageLoader imageLoader = ImageLoader.getInstance();
-
     //轮播图图片数量
     private final static int IMAGE_COUNT = 5;
     //自动轮播的时间间隔
@@ -49,13 +48,11 @@ public class SlideBannerView extends FrameLayout{
     private List<ImageView> imageViewsList;
     //放圆点的View的list
     private List<View> dotViewsList;
-
     private ViewPager viewPager;
     //当前轮播页
     private int currentItem  = 0;
     //定时任务
     private ScheduledExecutorService scheduledExecutorService;
-
     private Context context;
 
     //Handler
@@ -63,7 +60,6 @@ public class SlideBannerView extends FrameLayout{
 
         @Override
         public void handleMessage(Message msg) {
-            // TODO Auto-generated method stub
             super.handleMessage(msg);
             viewPager.setCurrentItem(currentItem);
         }
@@ -72,11 +68,9 @@ public class SlideBannerView extends FrameLayout{
 
     public SlideBannerView(Context context) {
         this(context,null);
-        // TODO Auto-generated constructor stub
     }
     public SlideBannerView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
-        // TODO Auto-generated constructor stub
     }
     public SlideBannerView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -102,6 +96,7 @@ public class SlideBannerView extends FrameLayout{
     private void stopPlay(){
         scheduledExecutorService.shutdown();
     }
+
     /**
      * 初始化相关Data
      */
@@ -109,21 +104,20 @@ public class SlideBannerView extends FrameLayout{
         imageViewsList = new ArrayList<ImageView>();
         dotViewsList = new ArrayList<View>();
 
-        // 一步任务获取图片
+        // 异步任务获取图片
         new GetListTask().execute("");
     }
     /**
      * 初始化Views等UI
      */
     private void initUI(Context context){
-        if(imageUrls == null || imageUrls.length == 0)
+        if(imageUrls == null || imageUrls.length == 0){
             return;
-
+        }
         LayoutInflater.from(context).inflate(R.layout.slide_viewpager_banner, this, true);
 
         LinearLayout dotBanner = (LinearLayout)findViewById(R.id.dot_banner);
         dotBanner.removeAllViews();
-
         // 热点个数与图片特殊相等
         for (int i = 0; i < imageUrls.length; i++) {
             ImageView view =  new ImageView(context);
@@ -141,7 +135,6 @@ public class SlideBannerView extends FrameLayout{
             dotBanner.addView(dotView, params);
             dotViewsList.add(dotView);
         }
-
         viewPager = (ViewPager) findViewById(R.id.viewPager_banner);
         viewPager.setFocusable(true);
 
@@ -151,14 +144,11 @@ public class SlideBannerView extends FrameLayout{
 
     /**
      * 填充ViewPager的页面适配器
-     *
      */
     private class MyPagerAdapter  extends PagerAdapter {
 
         @Override
         public void destroyItem(View container, int position, Object object) {
-            // TODO Auto-generated method stub
-            //((ViewPag.er)container).removeView((View)object);
             ((ViewPager)container).removeView(imageViewsList.get(position));
         }
 
@@ -174,41 +164,34 @@ public class SlideBannerView extends FrameLayout{
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
             return imageViewsList.size();
         }
 
         @Override
         public boolean isViewFromObject(View arg0, Object arg1) {
-            // TODO Auto-generated method stub
             return arg0 == arg1;
         }
         @Override
         public void restoreState(Parcelable arg0, ClassLoader arg1) {
-            // TODO Auto-generated method stub
         }
 
         @Override
         public Parcelable saveState() {
-            // TODO Auto-generated method stub
             return null;
         }
 
         @Override
         public void startUpdate(View arg0) {
-            // TODO Auto-generated method stub
         }
 
         @Override
         public void finishUpdate(View arg0) {
-            // TODO Auto-generated method stub
         }
 
     }
     /**
      * ViewPager的监听器
      * 当ViewPager中页面的状态发生改变时调用
-     *
      */
     private class MyPageChangeListener implements ViewPager.OnPageChangeListener {
 
@@ -216,7 +199,6 @@ public class SlideBannerView extends FrameLayout{
 
         @Override
         public void onPageScrollStateChanged(int arg0) {
-            // TODO Auto-generated method stub
             switch (arg0) {
                 case 1:// 手势滑动，空闲中
                     isAutoPlay = false;
@@ -239,14 +221,10 @@ public class SlideBannerView extends FrameLayout{
 
         @Override
         public void onPageScrolled(int arg0, float arg1, int arg2) {
-            // TODO Auto-generated method stub
-
         }
 
         @Override
         public void onPageSelected(int pos) {
-            // TODO Auto-generated method stub
-
             currentItem = pos;
             for(int i=0;i < dotViewsList.size();i++){
                 if(i == pos){
@@ -261,7 +239,6 @@ public class SlideBannerView extends FrameLayout{
 
     /**
      *执行轮播图切换任务
-     *
      */
     private class SlideShowTask implements Runnable{
 
@@ -278,7 +255,6 @@ public class SlideBannerView extends FrameLayout{
 
     /**
      * 销毁ImageView资源，回收内存
-     *
      */
     private void destoryBitmaps() {
 
@@ -295,15 +271,13 @@ public class SlideBannerView extends FrameLayout{
 
     /**
      * 异步任务,获取数据
-     *
      */
     class GetListTask extends AsyncTask<String, Integer, Boolean> {
 
         @Override
         protected Boolean doInBackground(String... params) {
             try {
-                // 这里一般调用服务端接口获取一组轮播图片，下面是从百度找的几个图片
-
+                // 这里一般调用服务端接口获取一组轮播图片
                 imageUrls = new String[]{
                         "http://www.maigusoft.com/image/1.jpg",
                         "http://www.maigusoft.com/image/2.jpg",
@@ -342,13 +316,9 @@ public class SlideBannerView extends FrameLayout{
                 .denyCacheImageMultipleSizesInMemory()
                 .discCacheFileNameGenerator(new Md5FileNameGenerator())
                 .tasksProcessingOrder(QueueProcessingType.LIFO)
-                .writeDebugLogs() // Remove
-                // for
-                // release
-                // app
+                .writeDebugLogs()
                 .build();
         // Initialize ImageLoader with configuration.
         ImageLoader.getInstance().init(config);
     }
-
 }

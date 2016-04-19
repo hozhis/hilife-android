@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".main.activity.MainActivity"
-    tools:showIn="@layout/fragment_main">
+    tools:showIn="@layout/fragment_main"
+    android:background="@color/colorBody">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,16 +18,294 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <cn.dolphinsoft.hilife.main.view.SlideBannerView
-                android:id="@+id/slideBannerView"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_centerHorizontal="true" />
-
-            <TextView
+            <!-- TODO:横向滚动Banner，考虑后台配置的情况 -->
+            <HorizontalScrollView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="这是首页的Fragment" />
+                android:layout_height="150dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/slide_vertical_padding"
+                    android:paddingLeft="@dimen/slide_horizontal_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:src="@mipmap/slide1"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:src="@mipmap/slide2"/>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- SUBTITLE 保洁服务 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="@dimen/subtitle_margin_top"
+                    android:background="@drawable/subtitle_linear_layout_style"
+                    android:padding="@dimen/common_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/clean"
+                        android:gravity="center|left"
+                        android:paddingLeft="@dimen/subtitle_padding_left"
+                        android:background="@drawable/subtitle_textview_style_clean"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+                <!-- MAIN CONTAINER -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/slide_vertical_padding"
+                    android:paddingBottom="@dimen/slide_vertical_padding"
+                    android:background="@color/colorWhite">
+
+                    <cn.dolphinsoft.hilife.main.view.NoScrollGridView
+                        android:id="@+id/gridview_clean"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="4"
+                        android:verticalSpacing="@dimen/gridview_spacing">
+                    </cn.dolphinsoft.hilife.main.view.NoScrollGridView>
+                </LinearLayout>
+
+                <!-- SUBTITLE 维修服务 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="@dimen/subtitle_margin_top"
+                    android:background="@drawable/subtitle_linear_layout_style"
+                    android:padding="@dimen/common_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/maintain"
+                        android:gravity="center|left"
+                        android:paddingLeft="@dimen/subtitle_padding_left"
+                        android:background="@drawable/subtitle_textview_style_maintain"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+                <!-- MAIN CONTAINER -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/slide_vertical_padding"
+                    android:paddingBottom="@dimen/slide_vertical_padding"
+                    android:background="@color/colorWhite">
+
+                    <cn.dolphinsoft.hilife.main.view.NoScrollGridView
+                        android:id="@+id/gridview_maintain"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="4"
+                        android:verticalSpacing="@dimen/gridview_spacing">
+
+                    </cn.dolphinsoft.hilife.main.view.NoScrollGridView>
+                </LinearLayout>
+
+                <!-- SUBTITLE 电器清洗 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="@dimen/subtitle_margin_top"
+                    android:background="@drawable/subtitle_linear_layout_style"
+                    android:padding="@dimen/common_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/electric"
+                        android:gravity="center|left"
+                        android:paddingLeft="@dimen/subtitle_padding_left"
+                        android:background="@drawable/subtitle_textview_style_electric"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+                <!-- MAIN CONTAINER -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/slide_vertical_padding"
+                    android:paddingBottom="@dimen/slide_vertical_padding"
+                    android:background="@color/colorWhite">
+
+                    <cn.dolphinsoft.hilife.main.view.NoScrollGridView
+                        android:id="@+id/gridview_electric"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="4"
+                        android:verticalSpacing="@dimen/gridview_spacing">
+
+                    </cn.dolphinsoft.hilife.main.view.NoScrollGridView>
+                </LinearLayout>
+
+                <!-- SUBTITLE 家居保养 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="@dimen/subtitle_margin_top"
+                    android:background="@drawable/subtitle_linear_layout_style"
+                    android:padding="@dimen/common_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/homely"
+                        android:gravity="center|left"
+                        android:paddingLeft="@dimen/subtitle_padding_left"
+                        android:background="@drawable/subtitle_textview_style_homely"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+                <!-- MAIN CONTAINER -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/slide_vertical_padding"
+                    android:paddingBottom="@dimen/slide_vertical_padding"
+                    android:background="@color/colorWhite">
+
+                    <cn.dolphinsoft.hilife.main.view.NoScrollGridView
+                        android:id="@+id/gridview_homely"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="4"
+                        android:verticalSpacing="@dimen/gridview_spacing">
+
+                    </cn.dolphinsoft.hilife.main.view.NoScrollGridView>
+                </LinearLayout>
+
+                <!-- SUBTITLE 搬家服务 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="@dimen/subtitle_margin_top"
+                    android:background="@drawable/subtitle_linear_layout_style"
+                    android:padding="@dimen/common_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/move"
+                        android:gravity="center|left"
+                        android:paddingLeft="@dimen/subtitle_padding_left"
+                        android:background="@drawable/subtitle_textview_style_move"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+                <!-- MAIN CONTAINER -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/slide_vertical_padding"
+                    android:paddingBottom="@dimen/slide_vertical_padding"
+                    android:background="@color/colorWhite">
+
+                    <cn.dolphinsoft.hilife.main.view.NoScrollGridView
+                        android:id="@+id/gridview_move"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="4"
+                        android:verticalSpacing="@dimen/gridview_spacing">
+
+                    </cn.dolphinsoft.hilife.main.view.NoScrollGridView>
+                </LinearLayout>
+
+                <!-- SUBTITLE 管道疏通 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="@dimen/subtitle_margin_top"
+                    android:background="@drawable/subtitle_linear_layout_style"
+                    android:padding="@dimen/common_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/pipeline"
+                        android:gravity="center|left"
+                        android:paddingLeft="@dimen/subtitle_padding_left"
+                        android:background="@drawable/subtitle_textview_style_pipeline"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+                <!-- MAIN CONTAINER -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/slide_vertical_padding"
+                    android:paddingBottom="@dimen/slide_vertical_padding"
+                    android:background="@color/colorWhite">
+
+                    <cn.dolphinsoft.hilife.main.view.NoScrollGridView
+                        android:id="@+id/gridview_pipeline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="4"
+                        android:verticalSpacing="@dimen/gridview_spacing">
+
+                    </cn.dolphinsoft.hilife.main.view.NoScrollGridView>
+                </LinearLayout>
+
+                <!-- SUBTITLE 其他服务 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="@dimen/subtitle_margin_top"
+                    android:background="@drawable/subtitle_linear_layout_style"
+                    android:padding="@dimen/common_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/other"
+                        android:gravity="center|left"
+                        android:paddingLeft="@dimen/subtitle_padding_left"
+                        android:background="@drawable/subtitle_textview_style_other"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+                <!-- MAIN CONTAINER -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/slide_vertical_padding"
+                    android:paddingBottom="@dimen/slide_vertical_padding"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:background="@color/colorWhite">
+
+                    <cn.dolphinsoft.hilife.main.view.NoScrollGridView
+                        android:id="@+id/gridview_other"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="4"
+                        android:verticalSpacing="@dimen/gridview_spacing">
+
+                    </cn.dolphinsoft.hilife.main.view.NoScrollGridView>
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 

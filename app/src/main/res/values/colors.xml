@@ -10,8 +10,8 @@
     <color name="textSecondary">#727272</color>
     <color name="colorDivider">#B6B6B6</color>-->
     <!--RED-->
-    <color name="colorPrimary">#F44336</color>
-    <color name="colorPrimaryDark">#D32F2F</color>
+    <color name="colorPrimary">#EA0000</color>
+    <color name="colorPrimaryDark">#AE0000</color>
     <color name="colorAccent">#FF5252</color>
     <color name="textLight">#FFFFFF</color>
     <color name="textPrimary">#212121</color>
@@ -19,6 +19,8 @@
     <color name="textSecondary">#727272</color>
     <color name="colorDivider">#B6B6B6</color>
     <color name="colorWarning">#448AFF</color>
-    <color name="colorDotFocus">#85F44336</color>
+    <color name="colorDotFocus">#95F44336</color>
     <color name="colorDotBlur">#65FFFFFF</color>
+    <color name="colorBody">#F0F0F0</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>
